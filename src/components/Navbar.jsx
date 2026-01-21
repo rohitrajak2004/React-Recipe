@@ -5,12 +5,12 @@ import { useState } from "react";
 const Navbar = () => {
   const [isOpen, setisOpen] = useState(true);
   return (
-    <div className="p-5 bg-[#F9F9F9] shadow-md w-screen overflow-x-hidden md:px-15 lg:px-15">
+    <nav className="p-5 bg-[#F9F9F9] shadow-md w-screen overflow-x-hidden md:shadow-none lg:shadow-none md:px-15 lg:px-20">
       <div className="flex items-center justify-between">
         <h1 className="font-pacifico italic font-extrabold text-3xl tracking-tighter w-fit">
           Tastebite
         </h1>
-        <div className="hidden md:flex md:gap-13 lg:flex lg:gap-15 ">
+        <div className="hidden md:flex md:gap-13 lg:flex lg:gap-14 ">
           <NavLink
             onClick={() => setisOpen(true)}
             to="/"
@@ -88,7 +88,7 @@ const Navbar = () => {
           About
         </NavLink>
       </div>
-    </div>
+    </nav>
   );
 };
 
