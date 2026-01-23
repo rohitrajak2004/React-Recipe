@@ -5,7 +5,7 @@ import { useState } from "react";
 const Navbar = () => {
   const [isOpen, setisOpen] = useState(true);
   return (
-    <nav className="p-5 bg-[#F9F9F9] shadow-md w-screen overflow-x-hidden md:shadow-none lg:shadow-none md:px-15 lg:px-20">
+    <nav className="p-5 bg-[#F9F9F9] shadow-md w-full overflow-x-hidden box-border md:shadow-none lg:shadow-none md:px-15 lg:px-20">
       <div className="flex items-center justify-between">
         <h1 className="font-pacifico italic font-extrabold text-3xl tracking-tighter w-fit">
           Tastebite
@@ -56,7 +56,7 @@ const Navbar = () => {
       </div>
 
       <div
-        className={`md:hidden lg:hidden overflow-hidden origin-top transform transition-all duration-300 ease-in-out ${isOpen ? "scale-y-0 max-h-0 opacity-0" : " pt-5 flex flex-col gap-5 opacity-100 max-h-52 scale-y-100"}`}
+        className={`md:hidden lg:hidden overflow-hidden origin-top transform transition-all duration-300 ease-in-out ${isOpen ? "scale-y-0 max-h-0 opacity-0" : " pt-5 flex flex-col gap-5 opacity-100 max-h-52 scale-y-100 "}`}
       >
         <hr className={`${isOpen ? "hidden" : "block"}`} />
         <NavLink

@@ -1,13 +1,13 @@
 import { createContext, useState } from "react"
 
-export const recipedata = createContext(null);
+export const RecipeContext = createContext(null);
 
 const RecipeData = (props) => {
-    const [data, setdata] = useState([])
+    const [data, setData] = useState([])
   return (
-    <recipedata.Provider value={{ data, setdata }}>
+    <RecipeContext.Provider value={{ data, setData }}>
         {props.children}
-    </recipedata.Provider>
+    </RecipeContext.Provider>
   )
 }
 

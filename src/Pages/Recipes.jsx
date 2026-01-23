@@ -1,11 +1,9 @@
-import React from "react";
+import React from 'react'
 
 const Recipes = () => {
   return (
-    <div className="container">
-      <h1>Recipes!</h1>
-    </div>
-  );
-};
+    <div>Recipes</div>
+  )
+}
 
-export default Recipes;
+export default Recipes
