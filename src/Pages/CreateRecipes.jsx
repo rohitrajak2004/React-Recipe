@@ -1,5 +1,5 @@
 import { nanoid } from "nanoid";
-import React, { useContext, useEffect } from "react";
+import  { useContext} from "react";
 import { useForm } from "react-hook-form";
 import { RecipeContext } from './../context/RecipeData';
 
@@ -13,10 +13,7 @@ const CreateRecipes = () => {
     reset();
   };
  
-  useEffect(() => {
-    console.log(data);
-    
-  }, [data]);
+
 
   return (
     <div className="flex flex-col justify-center items-center p-10 bg-[#F9F9F9] md:w-full md:overflow-x-hidden lg:w-full lg:overflow-x-hidden">
