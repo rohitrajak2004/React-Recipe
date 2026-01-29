@@ -39,6 +39,14 @@ const CreateRecipes = () => {
           placeholder="Pizza , Pasta"
         />
 
+        <h3 className="text-xl font-medium">Recipe Title</h3>
+        <input
+          {...register("recipeTitle")}
+          className="border border-gray-400 rounded text-xl px-2 py-1"
+          type="text"
+          placeholder="Write Title about the Recipe"
+        />
+
         <h3 className="text-xl font-medium">Category</h3>
         <select
           {...register("category")}
@@ -68,12 +76,12 @@ const CreateRecipes = () => {
           placeholder="4"
         />
 
-        <h3 className="text-xl font-medium">Description</h3>
+        {/* <h3 className="text-xl font-medium">Description</h3>
         <textarea
           {...register("description")}
           className="border border-gray-400 rounded text-xl px-2 py-1"
           placeholder="Brief description of your recipe"
-        ></textarea>
+        ></textarea> */}
 
         <h3 className="text-xl font-medium">Your Name</h3>
         <input
