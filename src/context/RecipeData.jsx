@@ -17,7 +17,6 @@ const RecipeData = (props) => {
       servings: "3",
     },
   ]);
-  console.log(data);
 
   return (
     <RecipeContext.Provider value={{ data, setData }}>

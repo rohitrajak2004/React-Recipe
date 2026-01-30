@@ -1,5 +1,6 @@
 import Navbar from "./components/Navbar";
 import Mainroutes from "./routes/Mainroutes";
+import SingleRecipe from "./Pages/SingleRecipe";
 
 const App = () => {
   return (
