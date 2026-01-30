@@ -24,6 +24,7 @@ const CreateRecipes = () => {
         </h3>
       </div>
       <form
+      
         onSubmit={handleSubmit(submitHandler)}
         className="pt-10 px-5 flex flex-col gap-5 justify-center w-full max-w-3xl md:w-3/6"
       >
@@ -33,6 +34,7 @@ const CreateRecipes = () => {
 
         <h3 className="text-xl font-medium">Recipe Name</h3>
         <input
+        required
           {...register("recipeName")}
           className="border border-gray-400 rounded text-xl px-2 py-1"
           type="text"
@@ -41,6 +43,7 @@ const CreateRecipes = () => {
 
         <h3 className="text-xl font-medium">Recipe Title</h3>
         <input
+        required
           {...register("recipeTitle")}
           className="border border-gray-400 rounded text-xl px-2 py-1"
           type="text"
@@ -49,6 +52,7 @@ const CreateRecipes = () => {
 
         <h3 className="text-xl font-medium">Category</h3>
         <select
+        required
           {...register("category")}
           className="border border-gray-400 rounded text-xl px-2 py-1"
           placeholder="Select Category"
@@ -62,6 +66,7 @@ const CreateRecipes = () => {
 
         <h3 className="text-xl font-medium">Prep Time</h3>
         <input
+        required
           {...register("prepTime")}
           className="border border-gray-400 rounded text-xl px-2 py-1"
           type="number"
@@ -70,21 +75,16 @@ const CreateRecipes = () => {
 
         <h3 className="text-xl font-medium">Servings</h3>
         <input
+        required
           {...register("servings")}
           className="border border-gray-400 rounded text-xl px-2 py-1"
           type="number"
           placeholder="4"
         />
 
-        {/* <h3 className="text-xl font-medium">Description</h3>
-        <textarea
-          {...register("description")}
-          className="border border-gray-400 rounded text-xl px-2 py-1"
-          placeholder="Brief description of your recipe"
-        ></textarea> */}
-
         <h3 className="text-xl font-medium">Your Name</h3>
         <input
+        required
           {...register("chefName")}
           className="border border-gray-400 rounded text-xl px-2 py-1"
           type="text"
@@ -93,6 +93,7 @@ const CreateRecipes = () => {
 
         <h1 className="text-xl font-medium">Recipe Image</h1>
         <input
+        required
           {...register("recipeImage")}
           className="border border-gray-400 rounded text-xl px-2 py-1"
           type="url"
@@ -101,6 +102,7 @@ const CreateRecipes = () => {
 
         <h1 className="text-xl font-medium">Ingredients</h1>
         <input
+        required
           {...register("ingredients")}
           className="border border-gray-400 rounded text-xl px-2 py-1"
           type="text"
@@ -109,6 +111,7 @@ const CreateRecipes = () => {
 
         <h1 className="text-xl font-medium">Instructions</h1>
         <input
+        required
           {...register("instructions")}
           className="border border-gray-400 rounded text-xl p-2"
           type="text"

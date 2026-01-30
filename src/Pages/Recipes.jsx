@@ -11,9 +11,9 @@ const Recipes = () => {
       key={recipe.id}
     >
       <Link to={`/recipes/${recipe.id}`} className="block h-full">
-        <div className="h-full w-full flex flex-col gap-2 bg-[#f1f1f1] rounded-xl hover:shadow-lg transition-shadow duration-300">
+        <div className="h-full w-full flex flex-col gap-2 bg-[#f1f1f1] rounded-xl hover:shadow-lg transition-shadow duration-300 overflow-hidden">
           <img 
-            className="w-full h-64 md:h-52 lg:h-56 object-cover rounded-t-xl" 
+            className="w-full h-64 md:h-52 lg:h-56 object-cover rounded-t-xl transition-transform duration-300 hover:scale-110 " 
             src={recipe.recipeImage} 
             alt={recipe.recipeName}
           />
