@@ -1,22 +1,20 @@
 import { nanoid } from "nanoid";
-import  { useContext} from "react";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { RecipeContext } from './../context/RecipeData';
+import { RecipeContext } from "./../context/RecipeData";
 
 const CreateRecipes = () => {
-  const {data, setData} = useContext(RecipeContext)
+  const { data, setData } = useContext(RecipeContext);
 
-  const { register, handleSubmit, reset} = useForm();
-   const submitHandler =(recipe) => {
+  const { register, handleSubmit, reset } = useForm();
+  const submitHandler = (recipe) => {
     recipe.id = nanoid();
-    setData([...data, recipe])
+    setData([...data, recipe]);
     reset();
   };
- 
-
 
   return (
-    <div className="flex flex-col justify-center items-center p-10 bg-[#F9F9F9] md:w-full md:overflow-x-hidden lg:w-full lg:overflow-x-hidden">
+    <div className="flex flex-col justify-center items-center p-10 bg-[#FFFFFF] md:w-full md:overflow-x-hidden lg:w-full lg:overflow-x-hidden">
       <div className="flex flex-col justify-center items-center gap-5">
         <h1 className="text-5xl text-center font-bold ">Submit Your Recipe</h1>
         <h3 className="text-2xl font-normal text-center text-[#34393e]">
@@ -24,7 +22,6 @@ const CreateRecipes = () => {
         </h3>
       </div>
       <form
-      
         onSubmit={handleSubmit(submitHandler)}
         className="pt-10 px-5 flex flex-col gap-5 justify-center w-full max-w-3xl md:w-3/6"
       >
@@ -34,7 +31,7 @@ const CreateRecipes = () => {
 
         <h3 className="text-xl font-medium">Recipe Name</h3>
         <input
-        required
+          required
           {...register("recipeName")}
           className="border border-gray-400 rounded text-xl px-2 py-1"
           type="text"
@@ -43,7 +40,7 @@ const CreateRecipes = () => {
 
         <h3 className="text-xl font-medium">Recipe Title</h3>
         <input
-        required
+          required
           {...register("recipeTitle")}
           className="border border-gray-400 rounded text-xl px-2 py-1"
           type="text"
@@ -52,7 +49,7 @@ const CreateRecipes = () => {
 
         <h3 className="text-xl font-medium">Category</h3>
         <select
-        required
+          required
           {...register("category")}
           className="border border-gray-400 rounded text-xl px-2 py-1"
           placeholder="Select Category"
@@ -66,7 +63,7 @@ const CreateRecipes = () => {
 
         <h3 className="text-xl font-medium">Prep Time</h3>
         <input
-        required
+          required
           {...register("prepTime")}
           className="border border-gray-400 rounded text-xl px-2 py-1"
           type="number"
@@ -75,7 +72,7 @@ const CreateRecipes = () => {
 
         <h3 className="text-xl font-medium">Servings</h3>
         <input
-        required
+          required
           {...register("servings")}
           className="border border-gray-400 rounded text-xl px-2 py-1"
           type="number"
@@ -84,7 +81,7 @@ const CreateRecipes = () => {
 
         <h3 className="text-xl font-medium">Your Name</h3>
         <input
-        required
+          required
           {...register("chefName")}
           className="border border-gray-400 rounded text-xl px-2 py-1"
           type="text"
@@ -93,7 +90,7 @@ const CreateRecipes = () => {
 
         <h1 className="text-xl font-medium">Recipe Image</h1>
         <input
-        required
+          required
           {...register("recipeImage")}
           className="border border-gray-400 rounded text-xl px-2 py-1"
           type="url"
@@ -102,7 +99,7 @@ const CreateRecipes = () => {
 
         <h1 className="text-xl font-medium">Ingredients</h1>
         <input
-        required
+          required
           {...register("ingredients")}
           className="border border-gray-400 rounded text-xl px-2 py-1"
           type="text"
@@ -111,7 +108,7 @@ const CreateRecipes = () => {
 
         <h1 className="text-xl font-medium">Instructions</h1>
         <input
-        required
+          required
           {...register("instructions")}
           className="border border-gray-400 rounded text-xl p-2"
           type="text"

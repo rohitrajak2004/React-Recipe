@@ -3,12 +3,12 @@ import { useNavigate, useParams } from "react-router-dom";
 import { RecipeContext } from "../context/RecipeData";
 
 const SingleRecipe = () => {
-   const {data} = useContext(RecipeContext)
-  const {id} = useParams()
+  const { data } = useContext(RecipeContext);
+  const { id } = useParams();
   const recipe = data.find((recipe) => String(recipe.id) === String(id));
-  const ingredients = recipe.ingredients.split(",")
-  const instructions = recipe.instructions.split(",")
- const navigate = useNavigate();
+  const ingredients = recipe.ingredients.split(",");
+  const instructions = recipe.instructions.split(",");
+  const navigate = useNavigate();
   return (
     <div className="p-6 bg-[#F9F9F9] sm:px-8 md:px-12 lg:px-20 cursor-default">
       <h1 className="text-4xl font-extrabold font-playfair leading-11 md:text-5xl md:pt-5 lg:text-6xl lg:pt-5">
@@ -59,9 +59,12 @@ const SingleRecipe = () => {
           </ol>
         </div>
       </div>
-      <button 
-      className="border-black border transition-transform text-black font-normal duration-200 hover:scale-105 rounded-sm px-4 py-1 cursor-pointer hover:bg-black hover:text-white mt-5"
-      onClick={() => navigate(-1)}>Go Back</button>
+      <button
+        className="border-black border transition-transform text-black font-normal duration-200 hover:scale-105 rounded-sm px-4 py-1 cursor-pointer hover:bg-black hover:text-white mt-5"
+        onClick={() => navigate(-1)}
+      >
+        Go Back
+      </button>
     </div>
   );
 };
