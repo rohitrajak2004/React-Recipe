@@ -4,12 +4,13 @@ import { useForm } from "react-hook-form";
 import { RecipeContext } from "./../context/RecipeData";
 
 const CreateRecipes = () => {
-  const { data, setData } = useContext(RecipeContext);
+  const { pendingRecipes, setPendingRecipes } = useContext(RecipeContext);
 
   const { register, handleSubmit, reset } = useForm();
   const submitHandler = (recipe) => {
     recipe.id = nanoid();
-    setData([...data, recipe]);
+    recipe.status = "pending";
+    setPendingRecipes([...pendingRecipes, recipe]);
     reset();
   };
 

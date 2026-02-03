@@ -148,10 +148,11 @@ const RecipeData = (props) => {
       isAdmin: true,
     },
   ]);
+  const [pendingRecipes, setPendingRecipes] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
   return (
     <RecipeContext.Provider
-      value={{ data, setData, user, setUser, currentUser, setCurrentUser }}
+      value={{ data, setData, user, setUser, pendingRecipes, setPendingRecipes, currentUser, setCurrentUser }}
     >
       {props.children}
     </RecipeContext.Provider>

@@ -17,30 +17,22 @@ const Login = () => {
       }
     }
   }, [currentUser, navigate]);
+
   const submitHandler = (data) => {
     const foundUser = user.find(
       (user) => user.email === data.email && user.password === data.password,
     );
-    const foundAdmin = user.find(
-      (user) =>
-        user.email === data.email &&
-        user.password === data.password &&
-        user.isAdmin === true,
-    );
+    
     if (foundUser) {
-      if (foundAdmin) {
-        console.log("admin logged in");
+      setCurrentUser(foundUser); // Set state first
+      if (foundUser.isAdmin === true) {
         navigate("/admin");
-        setCurrentUser(foundAdmin);
-      } else if (!foundAdmin) {
+      } else {
         navigate("/");
-        console.log("not admin");
-        setCurrentUser(foundUser);
       }
     } else {
       alert("Invalid email or password");
     }
-
     reset();
   };
   return (
