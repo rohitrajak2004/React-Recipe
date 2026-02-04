@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { RecipeContext } from '../context/RecipeData';
 
 const AdminSingleRecipe = () => {
-   const { pendingRecipes, setPendingRecipes } = useContext(RecipeContext);
+   const { pendingRecipes, setPendingRecipes,setData } = useContext(RecipeContext);
   const { id } = useParams();
   const recipe = pendingRecipes.find((recipe) => String(recipe.id) === String(id));
   const ingredients = recipe.ingredients.split(",");
@@ -14,6 +14,14 @@ const RejectHandler = () => {
   setPendingRecipes(prevData =>
     prevData.filter(item => String(item.id) !== String(id))
   );
+  navigate('/admin');
+};
+const AcceptHandler = () => {
+    setData (prevData => [...prevData, recipe]);
+  setPendingRecipes(prevData =>
+    prevData.filter(item => String(item.id) !== String(id))
+  );
+  
   navigate('/admin');
 };
 
@@ -83,9 +91,9 @@ const RejectHandler = () => {
       </button>
       <button
         className="border-black border transition-transform text-black font-normal duration-200 hover:scale-105 rounded-sm px-4 py-1 cursor-pointer hover:bg-black hover:text-white mt-5"
-        onClick={() => navigate(-1)}
+        onClick={AcceptHandler}
       >
-        Accepct
+        Accept
       </button>
       <button
         className="border-black border transition-transform text-black font-normal duration-200 hover:scale-105 rounded-sm px-4 py-1 cursor-pointer hover:bg-black hover:text-white mt-5"
