@@ -4,8 +4,6 @@ import { Clock, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 const AdminPending = () => {
   const { pendingRecipes } = useContext(RecipeContext);
-  console.log(pendingRecipes);
-
   const pendingRecipeList = pendingRecipes.map((recipes) => (
     <div
       className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 px-2 md:px-0"
