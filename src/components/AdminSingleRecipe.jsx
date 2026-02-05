@@ -85,7 +85,7 @@ const AcceptHandler = () => {
       </button>
       <button
         className="border-black border transition-transform text-black font-normal duration-200 hover:scale-105 rounded-sm px-4 py-1 cursor-pointer hover:bg-black hover:text-white mt-5"
-        onClick={() => navigate(-1)}
+        onClick={() => navigate(`/admin/recipes/${id}/update`)}
       >
         Update
       </button>

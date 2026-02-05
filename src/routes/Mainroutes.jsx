@@ -8,6 +8,7 @@ import Login from "../Auth/Login";
 import SignUp from "../Auth/SignUp";
 import Admin from "../Pages/Admin";
 import AdminSingleRecipe from "../components/AdminSingleRecipe";
+import AdminUpdateRecipe from "../components/AdminUpdateRecipe";
 
 
 const Mainroutes = () => {
@@ -22,6 +23,7 @@ const Mainroutes = () => {
       <Route path="/sign-up" element={<SignUp />} />
       <Route path="/admin" element={<Admin />}/>
       <Route path="/admin/recipes/:id" element={<AdminSingleRecipe />} />
+      <Route path="/admin/recipes/:id/update" element={<AdminUpdateRecipe />} />
     </Routes>
   );
 };
