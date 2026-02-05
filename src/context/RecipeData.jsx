@@ -142,7 +142,7 @@ const RecipeData = (props) => {
   ]);
   const [user, setUser] = useState([
     {
-      fullName: "rohit",
+      fullName: "Rohit",
       email: "rohit@me.com",
       password: "123",
       isAdmin: true,

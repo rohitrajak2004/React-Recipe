@@ -6,7 +6,7 @@ const AdminPending = () => {
   const { pendingRecipes } = useContext(RecipeContext);
   const pendingRecipeList = pendingRecipes.map((recipes) => (
     <div
-      className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 px-2 md:px-0"
+      className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 px-2 md:px-0 mb-5"
       key={recipes.id}
     >
       <Link to={`/admin/recipes/${recipes.id}`} className="block h-full">
@@ -47,27 +47,12 @@ const AdminPending = () => {
       </Link>
     </div>
   ));
-  //   const allPendingRecipes = pendingRecipes.map((recipes) => (
-  //     <div className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-2" key={recipes.id}>
-  {
-    /* <Link to={`/recipes/${recipe.id}`} className="block h-full"> */
-  }
-
-  {
-    /* </Link> */
-  }
-  //     </div>
-  //   ));
-
-  //  const handleSubmit = ()=>{
-  //     setData([...data,...pendingRecipes])
-  //  }
   return (
-    <div className="bg-[#f7f6f6] mt-4 h-full w-full">
+    <div className="bg-[#f7f6f6] mt-4 h-full w-full ">
       <h1 className="px-6 sm:px-8 md:px-12 lg:px-20 text-3xl font-medium">
         Pending Recipes
       </h1>
-      <div className="px-4 sm:px-8 md:px-12 lg:px-20 pt-8 flex flex-wrap gap-5 w-full h-full">
+      <div className="px-4 sm:px-8 md:px-12 lg:px-20 pt-8 flex flex-wrap gap-5 w-full h-full ">
         {pendingRecipeList}
       </div>
     </div>
@@ -75,9 +60,3 @@ const AdminPending = () => {
 };
 
 export default AdminPending;
-
-{
-  /* <button 
-            onClick={handleSubmit}
-            className="bg-black mt-4 text-white w-fit px-3 py-1 text-md active:scale-105 md:bg-white lg:bg-nonemd:border-black md:border md:transition-transform md:text-black font-normal duration-200 md:hover:scale-105 rounded-sm md:cursor-pointer md:hover:bg-black md:hover:text-white">Approve</button> */
-}

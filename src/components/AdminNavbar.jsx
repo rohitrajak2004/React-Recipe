@@ -23,7 +23,7 @@ const AdminNavbar = () => {
     <h1 className="font-cursive font-semibold tracking-wide text-3xl md:text-4xl w-fit">
           Tastebite
         </h1>
-        <button 
+          <button 
         onClick={logoutHandler}
         className="bg-black text-white w-fit px-3 py-1 text-md active:scale-105 md:bg-white lg:bg-nonemd:border-black md:border md:transition-transform md:text-black font-normal duration-200 md:hover:scale-105 rounded-sm md:cursor-pointer md:hover:bg-black md:hover:text-white">
           Logout

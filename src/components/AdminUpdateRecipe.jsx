@@ -35,9 +35,6 @@ const AdminUpdateRecipe = () => {
       );
       navigate(-1); // Navigate back to admin after saving
     };
-    console.log(recipe);
-    
-  
     return (
       <div className="flex flex-col justify-center items-center p-10 bg-[#FFFFFF] md:w-full md:overflow-x-hidden lg:w-full lg:overflow-x-hidden">
         <div className="flex flex-col justify-center items-center gap-5">

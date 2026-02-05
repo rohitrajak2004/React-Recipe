@@ -6,9 +6,26 @@ const AdminSingleRecipe = () => {
    const { pendingRecipes, setPendingRecipes,setData } = useContext(RecipeContext);
   const { id } = useParams();
   const recipe = pendingRecipes.find((recipe) => String(recipe.id) === String(id));
+  const navigate = useNavigate();
+
+  // Guard against undefined recipe
+  if (!recipe) {
+    return (
+      <div className="flex flex-col justify-center items-center p-10 h-screen bg-[#F9F9F9]">
+        <h1 className="text-4xl font-bold mb-4">Recipe Not Found</h1>
+        <p className="text-xl text-gray-600 mb-6">The recipe you're looking for doesn't exist or has been removed.</p>
+        <button
+          onClick={() => navigate('/admin')}
+          className="bg-[#ff642f] text-white px-6 py-3 rounded-md hover:bg-[#e55829] transition-colors"
+        >
+          Back to Admin Dashboard
+        </button>
+      </div>
+    );
+  }
+
   const ingredients = recipe.ingredients.split(",");
   const instructions = recipe.instructions.split(",");
-  const navigate = useNavigate();
 
 const RejectHandler = () => {
   setPendingRecipes(prevData =>
