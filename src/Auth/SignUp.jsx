@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { RecipeContext } from "../context/RecipeData";
 import { X } from "lucide-react";
+import { toast } from "react-toastify";
 
 const SignUp = () => {
   const { setUser, currentUser } = useContext(RecipeContext);
@@ -19,6 +20,10 @@ const SignUp = () => {
     setUser((prevUsers) => [...prevUsers, data]);
     reset();
     navigate("/login");
+    toast.success("Account created successfully!", {
+      position: "top-right",
+      autoClose: 1000,
+    });
   };
   return (
     <div className="flex justify-center items-center h-full">

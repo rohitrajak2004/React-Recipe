@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import { RecipeContext } from '../context/RecipeData';
+import { toast } from 'react-toastify';
 
 const AdminSingleRecipe = () => {
    const { pendingRecipes, setPendingRecipes,setData } = useContext(RecipeContext);
@@ -31,6 +32,10 @@ const RejectHandler = () => {
   setPendingRecipes(prevData =>
     prevData.filter(item => String(item.id) !== String(id))
   );
+  toast.info("Recipe rejected", {
+        position: "top-right",
+        autoClose: 2000,
+      });
   navigate('/admin');
 };
 const AcceptHandler = () => {
@@ -38,7 +43,10 @@ const AcceptHandler = () => {
   setPendingRecipes(prevData =>
     prevData.filter(item => String(item.id) !== String(id))
   );
-  
+  toast.success("Recipe accepted", {
+        position: "top-right",
+        autoClose: 2000,
+      });
   navigate('/admin');
 };
 

@@ -2,16 +2,29 @@ import { nanoid } from "nanoid";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { RecipeContext } from "./../context/RecipeData";
+import { toast } from "react-toastify";
 
 const CreateRecipes = () => {
-  const { pendingRecipes, setPendingRecipes } = useContext(RecipeContext);
+  const { pendingRecipes, setPendingRecipes, currentUser } = useContext(RecipeContext);
 
   const { register, handleSubmit, reset } = useForm();
   const submitHandler = (recipe) => {
-    recipe.id = nanoid();
+    if(currentUser){
+      recipe.id = nanoid();
     recipe.status = "pending";
     setPendingRecipes([...pendingRecipes, recipe]);
+    toast.info("Recipe Submitted successfully!", {
+          position: "top-right",
+          autoClose: 3000,
+        });
     reset();
+    }else{
+      toast.error("Please login to submit a recipe", {
+            position: "top-right",
+            autoClose: 3000,
+          }); 
+    }
+    
   };
 
   return (

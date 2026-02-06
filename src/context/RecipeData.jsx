@@ -1,9 +1,12 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 export const RecipeContext = createContext(null);
 
 const RecipeData = (props) => {
-  const [data, setData] = useState([
+  // Initialize data from localStorage or use default
+  const [data, setData] = useState(() => {
+    const savedData = localStorage.getItem('recipeData');
+    return savedData ? JSON.parse(savedData) : [
     {
       category: "Italian",
       chefName: "Rohit",
@@ -139,17 +142,56 @@ const RecipeData = (props) => {
       instructions:
         "mix dry ingredients in bowl, add milk and oil, add vanilla and vinegar, mix into smooth batter, pour into greased tin, bake at 180C for 30 minutes, cool and slice to serve",
     },
-  ]);
-  const [user, setUser] = useState([
+  ]});
+  
+  // Initialize users from localStorage or use default
+  const [user, setUser] = useState(() => {
+    const savedUsers = localStorage.getItem('users');
+    return savedUsers ? JSON.parse(savedUsers) : [
     {
       fullName: "Rohit",
       email: "rohit@me.com",
       password: "123",
       isAdmin: true,
     },
-  ]);
-  const [pendingRecipes, setPendingRecipes] = useState([]);
-  const [currentUser, setCurrentUser] = useState(null);
+  ]});
+  
+  // Initialize pendingRecipes from localStorage
+  const [pendingRecipes, setPendingRecipes] = useState(() => {
+    const savedPending = localStorage.getItem('pendingRecipes');
+    return savedPending ? JSON.parse(savedPending) : [];
+  });
+  
+  // Initialize currentUser from localStorage (keeps user logged in after refresh)
+  const [currentUser, setCurrentUser] = useState(() => {
+    const savedCurrentUser = localStorage.getItem('currentUser');
+    return savedCurrentUser ? JSON.parse(savedCurrentUser) : null;
+  });
+
+  // Save to localStorage whenever data changes
+  useEffect(() => {
+    localStorage.setItem('recipeData', JSON.stringify(data));
+  }, [data]);
+
+  // Save to localStorage whenever users change
+  useEffect(() => {
+    localStorage.setItem('users', JSON.stringify(user));
+  }, [user]);
+
+  // Save to localStorage whenever pendingRecipes change
+  useEffect(() => {
+    localStorage.setItem('pendingRecipes', JSON.stringify(pendingRecipes));
+  }, [pendingRecipes]);
+
+  // Save to localStorage whenever currentUser changes
+  useEffect(() => {
+    if (currentUser) {
+      localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    } else {
+      localStorage.removeItem('currentUser'); // Remove when user logs out
+    }
+  }, [currentUser]);
+
   return (
     <RecipeContext.Provider
       value={{ data, setData, user, setUser, pendingRecipes, setPendingRecipes, currentUser, setCurrentUser }}

@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { useForm } from 'react-hook-form';
 import { RecipeContext } from '../context/RecipeData';
 import {  useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const AdminUpdateRecipe = () => {
   const { pendingRecipes, setPendingRecipes } = useContext(RecipeContext);
@@ -33,6 +34,10 @@ const AdminUpdateRecipe = () => {
             : item // Keep other recipes unchanged
         )
       );
+      toast.success("Recipe updated successfully!", {
+            position: "top-right",
+            autoClose: 2000,
+          });
       navigate(-1); // Navigate back to admin after saving
     };
     return (

@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { RecipeContext } from "../context/RecipeData";
 import { X } from "lucide-react";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const { user, currentUser, setCurrentUser } = useContext(RecipeContext);
@@ -26,12 +27,24 @@ const Login = () => {
     if (foundUser) {
       setCurrentUser(foundUser); // Set state first
       if (foundUser.isAdmin === true) {
+        toast.success("Welcome Admin!", {
+              position: "top-right",
+              autoClose: 1000,
+            });
         navigate("/admin");
       } else {
+        toast.success(`Welcome ${foundUser.fullName}`, {
+              position: "top-right",
+              autoClose: 1000,
+            });
         navigate("/");
       }
     } else {
-      alert("Invalid email or password");
+
+      toast.error("Invalid email or password", {
+            position: "top-right",
+            autoClose: 1000,
+          });
     }
     reset();
   };
