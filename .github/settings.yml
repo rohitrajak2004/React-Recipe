@@ -1,0 +1,87 @@
+# Repository settings for React-Recipe
+# This file is used by the GitHub Settings App (Probot Settings)
+# to configure repository settings including branch protection rules
+
+repository:
+  # Repository description
+  name: React-Recipe
+  description: A modern, responsive recipe-sharing platform built with React and Tailwind CSS
+  
+  # Repository homepage
+  homepage: https://github.com/rohitrajak2004/React-Recipe
+  
+  # Repository topics
+  topics: react, vite, tailwindcss, recipe-app, frontend
+  
+  # Repository settings
+  private: false
+  has_issues: true
+  has_projects: true
+  has_wiki: false
+  has_downloads: true
+  default_branch: main
+  allow_squash_merge: true
+  allow_merge_commit: true
+  allow_rebase_merge: true
+  delete_branch_on_merge: true
+  enable_automated_security_fixes: true
+  enable_vulnerability_alerts: true
+
+# Branch protection rules
+branches:
+  - name: main
+    # Require pull request reviews before merging
+    protection:
+      # Require at least one approving review on a pull request before merging
+      required_pull_request_reviews:
+        # Dismiss stale pull request approvals when new commits are pushed
+        dismiss_stale_reviews: true
+        # Require review from code owners
+        require_code_owner_reviews: false
+        # Number of required approving reviews (1 to 6)
+        required_approving_review_count: 1
+        # Require approval of the most recent reviewable push
+        require_last_push_approval: false
+        # Allow specified users, teams, or apps to bypass pull request requirements
+        bypass_pull_request_allowances:
+          users: []
+          teams: []
+          apps: []
+      
+      # Require status checks to pass before merging
+      required_status_checks:
+        # Require branches to be up to date before merging
+        strict: true
+        # List of status checks that must pass
+        # Add your CI/CD checks here when available
+        contexts: []
+      
+      # Enforce all configured restrictions for administrators
+      enforce_admins: true
+      
+      # Require linear history (no merge commits)
+      required_linear_history: false
+      
+      # Allow force pushes (set to false for maximum protection)
+      allow_force_pushes: false
+      
+      # Allow deletions (set to false for maximum protection)
+      allow_deletions: false
+      
+      # Block creations (prevent direct commits)
+      block_creations: false
+      
+      # Require conversation resolution before merging
+      required_conversation_resolution: true
+      
+      # Lock branch (make it read-only)
+      lock_branch: false
+      
+      # Allow fork syncing
+      allow_fork_syncing: true
+      
+      # Restrictions on who can push to this branch
+      restrictions:
+        users: []
+        teams: []
+        apps: []
