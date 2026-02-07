@@ -14,7 +14,7 @@
   A modern, responsive recipe-sharing platform built with React and Tailwind CSS
 </p>
 
-[Demo](#) · [Report Bug](https://github.com/rohitrajak2004/React-Recipe/issues) · [Request Feature](https://github.com/rohitrajak2004/React-Recipe/issues)
+[Report Bug](https://github.com/rohitrajak2004/React-Recipe/issues) · [Request Feature](https://github.com/rohitrajak2004/React-Recipe/issues)
 
 </div>
 
@@ -22,16 +22,16 @@
 
 ## 📋 Table of Contents
 
-- [About The Project](#-about-the-project)
-- [Features](#-features)
-- [Tech Stack](#-tech-stack)
-- [Getting Started](#-getting-started)
-- [Usage](#-usage)
-- [Project Structure](#-project-structure)
-- [Screenshots](#-screenshots)
-- [Contributing](#-contributing)
-- [License](#-license)
-- [Contact](#-contact)
+- [About The Project](#about-the-project)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Screenshots](#screenshots)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
 ---
 
@@ -143,7 +143,7 @@ Make sure you have the following installed:
    ```
 
 5. **Open your browser**
-   ```
+   ```text
    Navigate to http://localhost:5173
    ```
 
@@ -188,23 +188,23 @@ pnpm preview
 3. **Approve/Reject**: Manage user-submitted recipes
 4. **Edit Recipes**: Update existing recipe information
 
-### Default Credentials
+### Authentication
 
-```
-Admin:
-Email: rohit@gmail.com
-Password: rohit123
+⚠️ **For Local Development Only**
 
-User:
-Email: monalisa@gmail.com
-Password: mona123
-```
+This application uses Context API for authentication state management. For local testing:
+
+- The authentication system validates credentials against locally stored data
+- No default credentials are provided in production
+- For development/testing, you can create test accounts through the signup flow
+
+**Security Notice**: Never commit real credentials to version control. Always use environment variables for sensitive data in production deployments.
 
 ---
 
 ## 📁 Project Structure
 
-```
+```text
 React-Recipe/
 ├── public/              # Static assets
 ├── src/
