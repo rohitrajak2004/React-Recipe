@@ -1,10 +1,42 @@
-import { useContext } from "react";
+import { useContext} from "react";
 import { RecipeContext } from "../context/RecipeData";
 import { Clock, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 
+
+
 const Recipes = () => {
   const { data } = useContext(RecipeContext);
+  
+  // useEffect(()=>{
+  //   const apiData = async ()=>{
+  //     try {
+  //       const res = await instance.get("")
+  //       const transformedData = res.data.recipes?.map((recipe)=>({
+  //           id: recipe.id,
+  //           recipeName: recipe.name,
+  //           recipeTitle: null,
+  //           category: recipe.cuisine,
+  //           prepTime: recipe.prepTimeMinutes,
+  //           servings: recipe.servings,
+  //           chefName: null,
+  //           recipeImage: recipe.image,
+  //           ingredients: recipe.ingredients.join(', '),
+  //           instructions: recipe.instructions.join(', '),
+  //       })) || []
+
+  //       // Replace data instead of appending to avoid duplicates
+  //       // setData(transformedData)
+  //       setData (prevData => [...prevData, transformedData]);
+        
+        
+  //     } catch (error) {
+  //       console.log(error);
+        
+  //     }
+  //   }
+  //   apiData();
+  // }, [])
   const recipeData = data.map((recipe) => (
     <div className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-2" key={recipe.id}>
       <Link to={`/recipes/${recipe.id}`} className="block h-full">

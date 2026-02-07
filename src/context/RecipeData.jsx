@@ -6,148 +6,217 @@ const RecipeData = (props) => {
   // Initialize data from localStorage or use default
   const [data, setData] = useState(() => {
     const savedData = localStorage.getItem('recipeData');
-    return savedData ? JSON.parse(savedData) : [
-    {
-      category: "Italian",
-      chefName: "Rohit",
-      id: "jCFLwCJ4TX1TTockfjeAv",
-      ingredients:
-        "400g spaghetti 200g pancetta or guanciale, diced 4 large eggs 100g Pecorino Romano cheese, grated Black pepper to taste Salt for pasta water",
-      instructions:
-        "Bring a large pot of salted water to boil and cook spaghetti according to package directions.,While pasta cooks, fry pancetta in a large skillet until crispy.,In a bowl, whisk together eggs, cheese, and black pepper.,Drain pasta, reserving 1 cup of pasta water.,Add hot pasta to the skillet with pancetta, remove from heat,Quickly stir in egg mixture, adding pasta water as needed to create a creamy sauce,Serve immediately with extra cheese and black pepper.",
-      prepTime: "45",
-      recipeImage:
-        "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8ZGVzc2VydHxlbnwwfHwwfHx8MA%3D%3D",
-      recipeName: "Classic Spaghetti Carbonara",
-      recipeTitle:
-        "A traditional Italian pasta dish made with eggs, cheese, pancetta, and black pepper.",
-      servings: "3",
-    },
-    {
-      id: "jCFLwca4TX1TTockfjeAv",
-      recipeName: "Pizza",
-      recipeTitle: "Cheesy Veg Loaded Homemade Pizza",
-      category: "Italian",
-      prepTime: 45,
-      servings: 4,
-      chefName: "Rohit",
-      recipeImage:
-        "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGl6emF8ZW58MHx8MHx8fDA%3D",
-      ingredients:
-        "pizza base, pizza sauce, mozzarella cheese, capsicum, onion, tomato, olives, oregano, chili flakes",
-      instructions:
-        "preheat oven to 220C, spread sauce on base, add chopped veggies, add cheese on top, sprinkle oregano and chili flakes, bake for 15 minutes, slice and serve hot",
-    },
-    {
-      id: "jCFLwca4TX1TfTockfjeAv",
-      recipeName: "Pasta",
-      recipeTitle: "Creamy White Sauce Alfredo Pasta",
-      category: "Italian",
-      prepTime: 25,
-      servings: 2,
-      chefName: "Rohit",
-      recipeImage:
-        "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGFzdGF8ZW58MHx8MHx8fDA%3D",
-      ingredients:
-        "pasta, butter, garlic, maida, milk, black pepper, salt, oregano, cheese",
-      instructions:
-        "boil pasta till soft, melt butter in pan, saute garlic, add maida and cook, pour milk slowly and stir, add salt and pepper, mix boiled pasta, add cheese and oregano, cook for 2 minutes and serve",
-    },
-    {
-      id: "jCFLwCJ4TX1TTockfjeaaw",
-      recipeName: "Paneer Butter Masala",
-      recipeTitle: "Rich and Creamy Restaurant Style Paneer",
-      category: "Indian",
-      prepTime: 35,
-      servings: 4,
-      chefName: "Rohit",
-      recipeImage:
-        "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGFuZWVyJTIwYnV0dGVyJTIwbWFzYWxhfGVufDB8fDB8fHww",
-      ingredients:
-        "paneer, tomato puree, butter, cream, onion, ginger garlic paste, garam masala, red chili powder, salt",
-      instructions:
-        "heat butter in pan, cook onion till soft, add ginger garlic paste, add tomato puree and spices, cook till oil separates, add paneer cubes, pour cream and simmer, garnish and serve",
-    },
-    {
-      id: "jCFLwfnawX1TTockfjeAv",
-      recipeName: "Veg Biryani",
-      recipeTitle: "Aromatic One Pot Vegetable Biryani",
-      category: "Indian",
-      prepTime: 50,
-      servings: 5,
-      chefName: "Rohit",
-      recipeImage:
-        "https://images.unsplash.com/photo-1630409346824-4f0e7b080087?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dmVnJTIwYmlyeWFuaXxlbnwwfHwwfHx8MA%3D%3D",
-      ingredients:
-        "basmati rice, carrot, beans, peas, onion, yogurt, biryani masala, saffron milk, ghee, whole spices",
-      instructions:
-        "soak rice for 20 minutes, fry whole spices in ghee, add sliced onions, add vegetables and masala, mix yogurt, add soaked rice and water, cook till rice is done, drizzle saffron milk and serve",
-    },
-    {
-      id: "jCFLwCJ4ThasTTockfjeAv",
-      recipeName: "Burger",
-      recipeTitle: "Crispy Aloo Tikki Veg Burger",
-      category: "Other",
-      prepTime: 30,
-      servings: 2,
-      chefName: "Rohit",
-      recipeImage:
-        "https://images.unsplash.com/photo-1603064752734-4c48eff53d05?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YnVyZ2VyfGVufDB8fDB8fHww",
-      ingredients:
-        "burger buns, boiled potato, bread crumbs, onion, tomato, lettuce, mayonnaise, ketchup, cheese slice",
-      instructions:
-        "mash potatoes with spices, shape into patties, coat with crumbs and fry, toast buns lightly, spread mayo and ketchup, place patty and veggies, add cheese and close bun, serve warm",
-    },
-    {
-      id: "jCFLwCJ4TX1TanjckfjeAv",
-      recipeName: "Fried Rice",
-      recipeTitle: "Quick Chinese Style Veg Fried Rice",
-      category: "Other",
-      prepTime: 20,
-      servings: 3,
-      chefName: "Rohit",
-      recipeImage:
-        "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZnJpZWQlMjByaWNlfGVufDB8fDB8fHww",
-      ingredients:
-        "cooked rice, carrot, beans, spring onion, garlic, soy sauce, pepper, oil, salt",
-      instructions:
-        "heat oil in wok, saute garlic, add chopped veggies, stir fry on high flame, add cooked rice, pour soy sauce and pepper, mix well and cook 2 minutes, garnish spring onion and serve",
-    },
-    {
-      id: "jCFLwCJafaj1TTockfjeAv",
-      recipeName: "Dosa",
-      recipeTitle: "Crispy South Indian Plain Dosa",
-      category: "Indian",
-      prepTime: 15,
-      servings: 3,
-      chefName: "Rohit",
-      recipeImage:
-        "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZG9zYXxlbnwwfHwwfHx8MA%3D%3D",
-      ingredients: "dosa batter, oil, salt",
-      instructions:
-        "heat nonstick tawa, pour ladle of batter, spread in circular motion, drizzle few drops oil, cook till golden and crisp, fold dosa and serve with chutney",
-    },
-    {
-      id: "jCFLwCajfX1TTockfjeAv",
-      recipeName: "Chocolate Cake",
-      recipeTitle: "Soft and Moist Eggless Chocolate Cake",
-      category: "Dessert",
-      prepTime: 40,
-      servings: 6,
-      chefName: "Rohit",
-      recipeImage:
-        "https://images.unsplash.com/photo-1508737804141-4c3b688e2546?q=80&w=686&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      ingredients:
-        "maida, cocoa powder, sugar, baking soda, milk, oil, vanilla essence, vinegar",
-      instructions:
-        "mix dry ingredients in bowl, add milk and oil, add vanilla and vinegar, mix into smooth batter, pour into greased tin, bake at 180C for 30 minutes, cool and slice to serve",
-    },
-  ]});
+    if (savedData) {
+      try {
+        return JSON.parse(savedData);
+      } catch (error) {
+        console.error('Failed to parse recipeData from localStorage:', error);
+      }
+    }
+    return [
+  // 🍰 DESSERTS
+  {
+    id: 1,
+    recipeName: "Chocolate Brownie",
+    recipeTitle: "Classic Fudgy Chocolate Brownie",
+    category: "Dessert",
+    prepTime: 40,
+    servings: 6,
+    chefName: "Rohit",
+    recipeImage: "https://www.themealdb.com/images/media/meals/yypvst1511386427.jpg",
+    ingredients: "dark chocolate, butter, sugar, eggs, flour, cocoa powder",
+    instructions: "melt chocolate and butter, mix sugar and eggs, add flour and cocoa, bake until set, cool and slice"
+  },
+  {
+    id: 2,
+    recipeName: "Gulab Jamun",
+    recipeTitle: "Traditional Indian Gulab Jamun",
+    category: "Dessert",
+    prepTime: 30,
+    servings: 4,
+    chefName: "Rohit",
+    recipeImage: "https://media.istockphoto.com/id/2177992427/photo/gulab-jamun.webp?a=1&b=1&s=612x612&w=0&k=20&c=IREPeN0lqAhR-lPo5bF8lSnXK8ymaiCDfdivdc2BjJQ=",
+    ingredients: "khoya, flour, sugar, water, cardamom, oil",
+    instructions: "prepare dough, fry balls, make sugar syrup, soak jamuns and serve"
+  },
+  {
+    id: 3,
+    recipeName: "Apple Pie",
+    recipeTitle: "Homemade Classic Apple Pie",
+    category: "Dessert",
+    prepTime: 50,
+    servings: 6,
+    chefName: "Rohit",
+    recipeImage: "https://www.themealdb.com/images/media/meals/qtqwwu1511792650.jpg",
+    ingredients: "apples, sugar, cinnamon, flour, butter",
+    instructions: "prepare crust, cook apple filling, assemble pie, bake until golden"
+  },
+
+  // 🍝 ITALIAN
+  {
+    id: 4,
+    recipeName: "Margherita Pizza",
+    recipeTitle: "Classic Italian Margherita Pizza",
+    category: "Italian",
+    prepTime: 45,
+    servings: 4,
+    chefName: "Rohit",
+    recipeImage: "https://www.themealdb.com/images/media/meals/x0lk931587671540.jpg",
+    ingredients: "pizza dough, tomato sauce, mozzarella, basil",
+    instructions: "roll dough, spread sauce, add cheese, bake, garnish with basil"
+  },
+  {
+    id: 5,
+    recipeName: "Spaghetti Carbonara",
+    recipeTitle: "Creamy Italian Carbonara",
+    category: "Italian",
+    prepTime: 25,
+    servings: 2,
+    chefName: "Rohit",
+    recipeImage: "https://www.themealdb.com/images/media/meals/llcbn01574260722.jpg",
+    ingredients: "spaghetti, eggs, parmesan, garlic, olive oil",
+    instructions: "boil pasta, prepare egg mixture, toss pasta with sauce and serve"
+  },
+  {
+    id: 6,
+    recipeName: "Lasagna",
+    recipeTitle: "Vegetarian Italian Lasagna",
+    category: "Italian",
+    prepTime: 55,
+    servings: 5,
+    chefName: "Rohit",
+    recipeImage: "https://www.themealdb.com/images/media/meals/wtsvxx1511296896.jpg",
+    ingredients: "lasagna sheets, tomato sauce, vegetables, cheese",
+    instructions: "layer pasta sheets with sauce and cheese, bake until bubbly"
+  },
+
+  // 🇮🇳 INDIAN
+  {
+    id: 7,
+    recipeName: "Paneer Butter Masala",
+    recipeTitle: "Restaurant Style Paneer Butter Masala",
+    category: "Indian",
+    prepTime: 35,
+    servings: 4,
+    chefName: "Rohit",
+    recipeImage: "https://images.unsplash.com/photo-1690401767645-595de0e0e5f8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGFuZWVyJTIwYnV0dGVyJTIwbWFzYWxhfGVufDB8fDB8fHww",
+    ingredients: "paneer, tomato puree, butter, cream, spices",
+    instructions: "cook tomato gravy, add paneer and cream, simmer and serve"
+  },
+  {
+    id: 8,
+    recipeName: "Vegetable Biryani",
+    recipeTitle: "Aromatic Veg Biryani",
+    category: "Indian",
+    prepTime: 50,
+    servings: 5,
+    chefName: "Rohit",
+    recipeImage: "https://media.istockphoto.com/id/495188382/photo/indian-pulav-vegetable-rice-veg-biryani-basmati-rice.webp?a=1&b=1&s=612x612&w=0&k=20&c=7ovRTJwxa_x4Q_BHoiLhiTKdTneDQ5W_m4_jJyOHbBM=",
+    ingredients: "basmati rice, vegetables, yogurt, spices",
+    instructions: "cook rice and vegetables separately, layer, dum cook and serve"
+  },
+  {
+    id: 9,
+    recipeName: "Masala Dosa",
+    recipeTitle: "South Indian Masala Dosa",
+    category: "Indian",
+    prepTime: 30,
+    servings: 3,
+    chefName: "Rohit",
+    recipeImage: "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8TWFzYWxhJTIwRG9zYXxlbnwwfHwwfHx8MA%3D%3D",
+    ingredients: "dosa batter, potato filling, oil",
+    instructions: "spread batter, cook till crisp, add filling and serve"
+  },
+
+  // 🥗 HEALTHY
+  {
+    id: 10,
+    recipeName: "Greek Salad",
+    recipeTitle: "Fresh Greek Salad",
+    category: "Healthy",
+    prepTime: 10,
+    servings: 2,
+    chefName: "Rohit",
+    recipeImage: "https://images.unsplash.com/photo-1599021419847-d8a7a6aba5b4?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8R3JlZWslMjBTYWxhZHxlbnwwfHwwfHx8MA%3D%3D",
+    ingredients: "cucumber, tomato, olives, feta cheese, olive oil",
+    instructions: "chop vegetables, mix with cheese, drizzle olive oil and serve"
+  },
+  {
+    id: 11,
+    recipeName: "Oatmeal Bowl",
+    recipeTitle: "Healthy Breakfast Oatmeal",
+    category: "Healthy",
+    prepTime: 8,
+    servings: 1,
+    chefName: "Rohit",
+    recipeImage: "https://plus.unsplash.com/premium_photo-1691010744402-b8587568e4eb?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8T2F0bWVhbCUyMEJvd2x8ZW58MHx8MHx8fDA%3D",
+    ingredients: "oats, milk, banana, honey",
+    instructions: "cook oats with milk, top with banana and honey"
+  },
+  {
+    id: 12,
+    recipeName: "Grilled Chicken Salad",
+    recipeTitle: "Protein Rich Chicken Salad",
+    category: "Healthy",
+    prepTime: 25,
+    servings: 2,
+    chefName: "Rohit",
+    recipeImage: "https://images.unsplash.com/photo-1580013759032-c96505e24c1f?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8R3JpbGxlZCUyMENoaWNrZW4lMjBTYWxhZHxlbnwwfHwwfHx8MA%3D%3D",
+    ingredients: "chicken breast, lettuce, olive oil, lemon",
+    instructions: "grill chicken, slice, mix with greens and dressing"
+  },
+
+  // 🍽️ OTHERS
+  {
+    id: 13,
+    recipeName: "Veg Burger",
+    recipeTitle: "Crispy Veg Burger",
+    category: "Others",
+    prepTime: 30,
+    servings: 2,
+    chefName: "Rohit",
+    recipeImage: "https://images.unsplash.com/photo-1520073201527-6b044ba2ca9f?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8VmVnJTIwQnVyZ2VyfGVufDB8fDB8fHww",
+    ingredients: "burger bun, potato patty, lettuce, sauce",
+    instructions: "cook patty, assemble burger and serve"
+  },
+  {
+    id: 14,
+    recipeName: "Hakka Noodles",
+    recipeTitle: "Chinese Style Veg Hakka Noodles",
+    category: "Others",
+    prepTime: 20,
+    servings: 3,
+    chefName: "Rohit",
+    recipeImage: "https://images.unsplash.com/photo-1617622141573-2e00d8818f3f?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8SGFra2ElMjBOb29kbGVzfGVufDB8fDB8fHww",
+    ingredients: "noodles, vegetables, soy sauce, oil",
+    instructions: "boil noodles, stir fry vegetables, mix and serve"
+  },
+  {
+    id: 15,
+    recipeName: "Tomato Soup",
+    recipeTitle: "Classic Tomato Soup",
+    category: "Others",
+    prepTime: 15,
+    servings: 2,
+    chefName: "Rohit",
+    recipeImage: "https://images.unsplash.com/photo-1629978444632-9f63ba0eff47?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8VG9tYXRvJTIwU291cHxlbnwwfHwwfHx8MA%3D%3D",
+    ingredients: "tomato, garlic, cream, spices",
+    instructions: "cook tomatoes, blend, simmer and serve hot"
+  }
+];
+});
   
   // Initialize users from localStorage or use default
   const [user, setUser] = useState(() => {
     const savedUsers = localStorage.getItem('users');
-    return savedUsers ? JSON.parse(savedUsers) : [
+    if (savedUsers) {
+      try {
+        return JSON.parse(savedUsers);
+      } catch (error) {
+        console.error('Failed to parse users from localStorage:', error);
+      }
+    }
+    return [
     {
       fullName: "Rohit",
       email: "rohit@me.com",
@@ -159,13 +228,27 @@ const RecipeData = (props) => {
   // Initialize pendingRecipes from localStorage
   const [pendingRecipes, setPendingRecipes] = useState(() => {
     const savedPending = localStorage.getItem('pendingRecipes');
-    return savedPending ? JSON.parse(savedPending) : [];
+    if (savedPending) {
+      try {
+        return JSON.parse(savedPending);
+      } catch (error) {
+        console.error('Failed to parse pendingRecipes from localStorage:', error);
+      }
+    }
+    return [];
   });
   
   // Initialize currentUser from localStorage (keeps user logged in after refresh)
   const [currentUser, setCurrentUser] = useState(() => {
     const savedCurrentUser = localStorage.getItem('currentUser');
-    return savedCurrentUser ? JSON.parse(savedCurrentUser) : null;
+    if (savedCurrentUser) {
+      try {
+        return JSON.parse(savedCurrentUser);
+      } catch (error) {
+        console.error('Failed to parse currentUser from localStorage:', error);
+      }
+    }
+    return null;
   });
 
   // Save to localStorage whenever data changes

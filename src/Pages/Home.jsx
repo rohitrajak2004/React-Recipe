@@ -1,11 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext} from 'react';
 import { Link } from 'react-router-dom';
 import { RecipeContext } from '../context/RecipeData';
-import { Star, Clock, Users, ChefHat, Pizza, Salad, IceCream, Coffee, UtensilsCrossed } from 'lucide-react';
+import { Clock, Users, ChefHat, Pizza, Salad, IceCream, Coffee, UtensilsCrossed } from 'lucide-react';
+
+
 
 const Home = () => {
   const { data } = useContext(RecipeContext);
-
   // Get featured recipe (first one) for hero section
   const featuredRecipe = data[0];
 
@@ -23,19 +24,6 @@ const Home = () => {
     { name: 'Other', icon: ChefHat, color: '#ff642f' },
   ];
 
-  // Star rating component
-  const StarRating = ({ rating = 5 }) => (
-    <div className="flex gap-1">
-      {[...Array(5)].map((_, i) => (
-        <Star
-          key={i}
-          size={14}
-          fill={i < rating ? '#ff642f' : 'none'}
-          color="#ff642f"
-        />
-      ))}
-    </div>
-  );
 
   // Recipe Card Component
   const RecipeCard = ({ recipe, size = 'normal' }) => (
@@ -58,7 +46,7 @@ const Home = () => {
         </div>
       </div>
       <div className="p-4">
-        <StarRating />
+       
         <h3 className={`font-bold text-gray-800 mt-2 ${
           size === 'large' ? 'text-xl md:text-2xl' : 'text-lg'
         }`}>
@@ -82,14 +70,14 @@ const Home = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+    <div className="min-h-screen bg-linear-to-b from-white to-gray-50">
       {/* Hero Section - Featured Recipe */}
       <section className="px-4 sm:px-8 md:px-12 lg:px-20 py-8 md:py-12">
         <div className="max-w-7xl mx-auto">
           <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
             <div className="grid md:grid-cols-2 gap-0">
               {/* Image */}
-              <div className="relative h-64 md:h-full min-h-[400px]">
+              <div className="relative h-64 md:h-full min-h-100">
                 <img
                   src={featuredRecipe.recipeImage}
                   alt={featuredRecipe.recipeName}
